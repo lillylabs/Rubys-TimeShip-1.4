@@ -63,7 +63,12 @@ const Signup = ({ user, setUser }) => {
 
         <label>
           email (landing location) <br />
-          <input type="email" id="emailLandingLocation" name="email" />
+          <input
+            type="email"
+            id="emailLandingLocation"
+            name="email"
+            placeholder="rooftop@lillylabs.no"
+          />
         </label>
 
         <br />
