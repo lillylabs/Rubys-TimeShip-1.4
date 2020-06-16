@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>The TimeShip</title>
+    <script type="text/javascript" src="https://sdk.userbase.com/1/userbase.js"></script>
+    <script src="https://js.stripe.com/v3/"></script>
+</head>
+<body>
+  <!-- auth view -->
+  <div id="auth-view">
+    <h3>Go to 2026 on:</h3>
+    <h1>Ruby's TimeShip ⛵</h1>
+    <form id="signup-form">
+      <div>
+        <input id="signup-pasSword" type="password" required placeholder="Pas🗡️">
+        <br>
+        <label>pasSword</label>
+      </div>
+      <div>
+        <label htmlFor="landing-location">email</label>
+        <br>
+        <input id="landing-location" type="text" required placeholder="rooftop@lillylabs.no">
+      </div>
+      <label htmlFor="signup-name">name</label>
+      <br>
+      <input id="signup-name" type="text" required placeholder="ruby">
+      <br>
+      <input type="submit" value="Let's Go to 2026 ⛵">
+    </form>
+    <div id="signup-error"></div>
+  </div>
+<!-- application code -->
+  <script type="text/javascript">
+    userbase.init({ appId: "8af6f24a-fcf3-4fa5-9e20-c8fe279c5b5c" })
+
+    function handleTimeShipSignUp(event) {
+      e.preventDefault()
+
+      const username = document.getElementById('signup-name').value
+      const email = document.getElementById('landing-location').value
+      const password = document.getElementById('signup-pasSword').value
+
+      userbase.signUp({ username, email, password, rememberMe: 'none' })
+        .then((user) => goToYear(user.username))
+        .catch((event) => document.getElementById('signup-error').innerHTML = event)
+    }
+    function goToYear(user) {
+        const successUrl = 'https://github.com/lillylabs/2026/issues/2'
+        const cancelUrl = 'http://localhost:8000/'
+        if (!user.subscriptionStatus) {
+            userbase.purchaseSubscription({ successUrl, cancelUrl });
+            return
+        }
+    }
+    document.getElementById('signup-form').addEventListener('submit',
+      handleTimeShipSignUp)
+  </script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
