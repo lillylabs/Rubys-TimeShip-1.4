@@ -15,9 +15,9 @@ const Signup = ({ user, setUser }) => {
   const handleSubmitSignUp = async (event) => {
     event.preventDefault();
 
-    const username = event.target.elements.usernameInput.value;
-    const email = event.target.elements.emailInput.value;
-    const password = event.target.elements.passwordInput.value;
+    const username = event.target.elements.usernameSignUp.value;
+    const email = event.target.elements.emailLandingLocation.value;
+    const password = event.target.elements.pasSword.value;
 
     try {
       console.log("Sign up");
@@ -29,37 +29,49 @@ const Signup = ({ user, setUser }) => {
       console.log("Sign up succeeded", user.username);
       setUser(user);
       setStatus("idle");
+      // goGoYear(user.username);
     } catch (error) {
       console.log("Sign up failed", error);
       setError(error);
       setStatus("idle");
     }
   };
+  // function goGoYear(user) {
+  //   const successUrl = "https://en.wikipedia.org/wiki/1554";
+  //   const cancelUrl =
+  //     "https://github.com/lillylabs/Rubys-TimeShip-1.4/issues/3";
+
+  //   if (!user.subscriptionStatus) {
+  //     userbase.purchaseSubscription({ successUrl, cancelUrl });
+  //     return;
+  //   }
+  // }
 
   return (
     <>
-      <h1>Ugliest App / Signup</h1>
+      <h3>Go to 2026 on:</h3>
+      <h1>Ruby's </h1>
+      <h1>TimeShip⛵</h1>
 
       <form onSubmit={handleSubmitSignUp}>
         <label>
-          Username: <br />
-          <input type="text" id="usernameInput" name="username" required />
+          pasSword <br />
+          <input type="password" id="pasSword" name="password" required />
+        </label>
+        <br />
+        <br />
+
+        <label>
+          email (landing location) <br />
+          <input type="email" id="emailLandingLocation" name="email" />
         </label>
 
         <br />
         <br />
 
         <label>
-          Email: <br />
-          <input type="email" id="emailInput" name="email" />
-        </label>
-
-        <br />
-        <br />
-
-        <label>
-          Password: <br />
-          <input type="password" id="passwordInput" name="password" required />
+          username <br />
+          <input type="text" id="usernameSignUp" name="username" required />
         </label>
 
         <br />
@@ -74,8 +86,9 @@ const Signup = ({ user, setUser }) => {
         )}
 
         <button type="submit" disabled={status === "pending"}>
-          Sign Up
+          ⛵ Let's Go to 2026 ⛵
         </button>
+        <br />
         <small>
           {" "}
           or <Link to="/app/login">log in</Link>

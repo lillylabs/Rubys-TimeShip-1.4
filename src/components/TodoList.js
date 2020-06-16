@@ -92,7 +92,7 @@ const TodoList = ({ user }) => {
   if (status === "initializing") {
     return (
       <>
-        <h1>Ugliest App / Todos</h1>
+        <h1>TimeShip⛵ / Log Book</h1>
 
         {!error ? <p>Loading...</p> : <p>{error.message}</p>}
       </>
@@ -101,7 +101,7 @@ const TodoList = ({ user }) => {
 
   return (
     <>
-      <h1>Ugliest App / Todos</h1>
+      <h1>TimeShip⛵ / Log Book</h1>
 
       {error && <p>{error.message}</p>}
 

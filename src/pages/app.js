@@ -18,7 +18,7 @@ const App = () => {
         console.log("Init Userbase");
 
         const session = await userbase.init({
-          appId: process.env.GATSBY_USERBASE_TEST_APP_ID,
+          appId: GATSBY_USERBASE_TEST_APP_ID,
         });
 
         console.log("Init Userbase succeeded");
@@ -60,7 +60,9 @@ const App = () => {
   if (status === "initializing") {
     return (
       <>
-        <h1>Ugliest App</h1>
+        <h3>Go to 2026 on:</h3>
+        <h1>Ruby's </h1>
+        <h1>TimeShip⛵</h1>
         <p>Loading...</p>
       </>
     );
@@ -69,7 +71,7 @@ const App = () => {
   if (error) {
     return (
       <>
-        <h1>Ugliest App / Error</h1>
+        <h1>TimeShip⛵ / Error</h1>
         <p>{error.message}</p>
       </>
     );
@@ -96,7 +98,7 @@ const App = () => {
       <hr />
       <p>
         <small>
-          <Link to="/">Back to website</Link>
+          <Link to="/">Back to Ruby's TimeShip⛵</Link>
         </small>
       </p>
     </>
