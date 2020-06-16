@@ -1,7 +1,7 @@
 import React, { useState, useLayoutEffect } from "react";
 import { Link, navigate } from "gatsby";
 import userbase from "userbase-js";
-
+import Stripe from "@stripe/stripe-js";
 const Signup = ({ user, setUser }) => {
   const [error, setError] = useState(false);
   const [status, setStatus] = useState("idle");
@@ -29,23 +29,23 @@ const Signup = ({ user, setUser }) => {
       console.log("Sign up succeeded", user.username);
       setUser(user);
       setStatus("idle");
-      // goGoYear(user.username);
+      goGoYear(user.username);
     } catch (error) {
       console.log("Sign up failed", error);
       setError(error);
       setStatus("idle");
     }
   };
-  // function goGoYear(user) {
-  //   const successUrl = "https://en.wikipedia.org/wiki/1554";
-  //   const cancelUrl =
-  //     "https://github.com/lillylabs/Rubys-TimeShip-1.4/issues/3";
+  function goGoYear(user) {
+    const successUrl = "https://en.wikipedia.org/wiki/1554";
+    const cancelUrl =
+      "https://github.com/lillylabs/Rubys-TimeShip-1.4/issues/3";
 
-  //   if (!user.subscriptionStatus) {
-  //     userbase.purchaseSubscription({ successUrl, cancelUrl });
-  //     return;
-  //   }
-  // }
+    if (!user.subscriptionStatus) {
+      userbase.purchaseSubscription({ successUrl, cancelUrl });
+      return;
+    }
+  }
 
   return (
     <>
@@ -63,7 +63,12 @@ const Signup = ({ user, setUser }) => {
 
         <label>
           email (landing location) <br />
-          <input type="email" id="emailLandingLocation" name="email" />
+          <input
+            type="email"
+            id="emailLandingLocation"
+            name="email"
+            placeholder="rooftop@lillylabs.no"
+          />
         </label>
 
         <br />
