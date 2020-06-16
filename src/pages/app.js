@@ -18,7 +18,7 @@ const App = () => {
         console.log("Init Userbase");
 
         const session = await userbase.init({
-          appId: process.env.GATSBY_USERBASE_APP_ID,
+          appId: process.env.GATSBY_USERBASE_TEST_APP_ID,
         });
 
         console.log("Init Userbase succeeded");
