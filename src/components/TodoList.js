@@ -59,10 +59,10 @@ const TodoList = ({ user }) => {
     };
   }, [user]);
 
-  const handleSubmitNewTodo = async (event) => {
+  const addGoYearHandler = async (event) => {
     event.preventDefault();
 
-    console.log("Insert new todo");
+    console.log("Insert new go year");
 
     const todoInputEl = event.target.elements.todoInput;
     const todo = todoInputEl.value;
@@ -92,7 +92,7 @@ const TodoList = ({ user }) => {
   if (status === "initializing") {
     return (
       <>
-        <h1>TimeShip⛵ / Log Book</h1>
+        <h1>TimeShip⛵ / Go-Year</h1>
 
         {!error ? <p>Loading...</p> : <p>{error.message}</p>}
       </>
@@ -101,7 +101,7 @@ const TodoList = ({ user }) => {
 
   return (
     <>
-      <h1>TimeShip⛵ / Log Book</h1>
+      <h1>TimeShip⛵ / Go-Year</h1>
 
       {error && <p>{error.message}</p>}
 
@@ -113,22 +113,22 @@ const TodoList = ({ user }) => {
         ))}
       </ul>
 
-      <form onSubmit={handleSubmitNewTodo}>
+      <form onSubmit={addGoYearHandler}>
         <label>
           <small>
-            Add todo: <br />
+            Add Go-Year: <br />
           </small>
           <input
             disabled={status !== "idle"}
             id="todoInput"
             type="text"
             required
-            placeholder="New To-Do"
+            placeholder="New Go-Year"
           />
         </label>
 
         <button type="submit" disabled={status !== "idle"}>
-          Add
+          Let's go
         </button>
       </form>
     </>
